@@ -9,6 +9,7 @@ def calculate_bmi(height,weight):
     print("BMI="+str(bmi))
     return(bmi)
 
+#Function to Classify BMI Range
 def  bmi_range(bmi):
     if(bmi < 18.5):
         print("Classified Under Weight")
