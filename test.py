@@ -1,8 +1,8 @@
 #Code done by Tony With Aid of ChatGPT
 temps = []
 import time
-def calc_average(min_temp, max_temp):
-    average = (min_temp + max_temp) / 2
+def calc_average(temps):
+    average = sum(temps) / len(temps)
     print("Average temperature:", average)
 
 def get_user_input():
@@ -58,9 +58,7 @@ def main():
                 time.sleep(1)
             elif selection == 3:
                 if temps:
-                    min_temp = min(temps)
-                    max_temp = max(temps)
-                    calc_average(min_temp, max_temp)
+                    calc_average(temps)
                     time.sleep(1)
                 else:
                     print("Temperatures not recorded yet. Please enter temperatures first.")
