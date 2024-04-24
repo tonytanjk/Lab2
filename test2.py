@@ -20,7 +20,7 @@ def find_min_max(temps):
         time.sleep(1)
         return min_temp, max_temp
     else:
-        print("temps not recorded yet, pls do temp entry first")
+        print("temps not recorded yet, pls do temperature entry first")
         return display_main_menu()
 
 def display_main_menu():
