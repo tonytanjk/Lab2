@@ -1,4 +1,4 @@
-#Code done by Tony With Aid of ChatGPT T_T
+#Code done by Tony With Aid of ChatGPT
 temps = []
 import time
 def calc_average(temps):
