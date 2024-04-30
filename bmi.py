@@ -14,7 +14,7 @@ def  bmi_range(bmi):
     if(bmi < 18.5):
         print("Classified Under Weight")
         return -1
-    elif(bmi <= 18.5 and bmi <= 25.0):
+    elif(bmi >= 18.5 and bmi <= 25.0):
         print("Classified Normal Weight")
         return 0
     elif(bmi > 25.0):
