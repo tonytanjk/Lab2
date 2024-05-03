@@ -1,77 +1,40 @@
-#Code done by Tony With Aid of ChatGPT
-temps = []
-import time
-def calc_average(temps):
-    average = sum(temps) / len(temps)
-    print("Average temperature:", average)
-
-def get_user_input():
-    temps_str = input("Enter temperatures separated by commas: ")
-    try:
-        temps = [float(temp) for temp in temps_str.split(",")]
-    except ValueError:
-        print("Invalid Input. Try Again")
-        return []
-    return temps
-
-def find_min_max(temps):
-    if temps:
-        min_temp = min(temps)
-        max_temp = max(temps)
-        print("Minimum temperature:", min_temp)
-        print("Maximum temperature:", max_temp)
-    else:
-        print("Temperatures not recorded yet. Please enter temperatures first.")
-
-def clear_temp():
-    global temps
-    temps = []
-    print("Temperature list cleared.")
-
+#Code done by Tony from ET0375 of DOAIOT @ SP
 def display_main_menu():
-    print("\nMain Menu:")
-    print("1. Enter Temperature Recordings")
-    print("2. Find Min_Max Temperature")
-    print("3. Calculate Average Temperature")
-    print("4. Show Temperature List")
-    print("5. Clear Temperature List")
-    print("6. Exit")
+    print("Enter some numbers separated by commas (e.g. 5, 67, 32)")
+
+def get_user_input(): #grabs user input from terminal
+    temps = input()
+    user_input = [float(user) for user in temps.split(",")]
+    return user_input
+
+def calc_average(list): # adds all values and divides by number of values
+    calc = sum(list) / len(list)
+    print("\ncalc_average", calc)
+
+def find_min_max(user_input): #identify min and max value given from get_user_input function
+    min_temp = min(user_input)
+    max_temp = max(user_input)
+    print("\nMinimum Temperature: ", min_temp)
+    print("\nMaximum Temperature: ", max_temp)
+
+def sort_temperature(user_input):
+    user_input.sort()
+    print("\nSorted Temperature :", user_input)
+
+def calc_median_temperature(list):
+    import statistics
+    median = statistics.median(list)
+    print("Median of List:\n", median)
+
 
 def main():
-    while True:
-        display_main_menu()
-        valid_selection = False
-        while not valid_selection:
-            selection = input("Enter your choice: ")
-            if selection.isdigit():
-                selection = int(selection)
-                valid_selection = True
-            else:
-                print("Invalid Input, Please enter a valid integer")
-                time.sleep(0.5)
-        if valid_selection == True:
-            if selection == 1:
-                global temps
-                temps += get_user_input()
-            elif selection == 2:
-                find_min_max(temps)
-                time.sleep(1)
-            elif selection == 3:
-                if temps:
-                    calc_average(temps)
-                    time.sleep(1)
-                else:
-                    print("Temperatures not recorded yet. Please enter temperatures first.")
-            elif selection == 4:
-                print("List of Temperatures: ", temps)
-                time.sleep(1)
-            elif selection == 5:
-                clear_temp()
-            elif selection == 6:
-                print("Exiting program.")
-                break
-            else:
-                print("Invalid selection. Please choose a number between 1 and 5.")
+    display_main_menu()
+    user_temp = get_user_input()
+    sort_temperature(user_temp)
+    find_min_max(user_temp)
+    calc_average(user_temp)
+    calc_median_temperature(user_temp)
+
 
 if __name__ == "__main__":
     main()
