@@ -10,12 +10,14 @@ def get_user_input(): #grabs user input from terminal
 def calc_average(list): # adds all values and divides by number of values
     calc = sum(list) / len(list)
     print("\ncalc_average", calc)
+    return calc
 
 def find_min_max(user_input): #identify min and max value given from get_user_input function
     min_temp = min(user_input)
     max_temp = max(user_input)
     print("\nMinimum Temperature: ", min_temp)
     print("\nMaximum Temperature: ", max_temp)
+    return [min_temp,max_temp]
 
 def sort_temperature(user_input):
     user_input.sort()
@@ -25,6 +27,7 @@ def calc_median_temperature(list):
     import statistics
     median = statistics.median(list)
     print("Median of List:\n", median)
+    return median
 
 
 def main():
